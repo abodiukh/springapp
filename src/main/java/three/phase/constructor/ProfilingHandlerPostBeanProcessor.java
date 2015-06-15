@@ -35,22 +35,22 @@ public class ProfilingHandlerPostBeanProcessor implements BeanPostProcessor {
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
+    public Object postProcessAfterInitialization(final Object o, final String s) throws BeansException {
         Class oClass = map.get(s);
         if (oClass != null) {
             return Proxy.newProxyInstance(oClass.getClassLoader(), oClass.getInterfaces(), new InvocationHandler() {
                 @Override
-                public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
+                public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
                     if (controller.isEnabled()) {
                         System.out.println("Putin huylo");
                         long before = System.nanoTime();
-                        Object retVal = method.invoke(o, objects);
+                        Object retVal = method.invoke(o, args);
                         long after = System.nanoTime();
                         System.out.println(after-before);
-                        System.out.println("Again");
+                        System.out.println("And again");
                         return retVal;
                     } else {
-                        return method.invoke(o, objects);
+                        return method.invoke(o, args);
                     }
                 }
             });

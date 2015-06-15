@@ -5,6 +5,8 @@ import javax.annotation.PostConstruct;
 /**
  * @author andrii
  */
+@Profiling
+@DeprecatedClass(newImpl = AnotherMessenger.class)
 public class SimpleMessenger implements Messenger {
 
     @IntRandomGenerator(min = 2, max = 9)
@@ -27,6 +29,7 @@ public class SimpleMessenger implements Messenger {
     }
 
     @Override
+    @PostProxy
     public void say() {
         System.out.println("Phase 3");
         for (int i = 0; i < repeat; i++) {
