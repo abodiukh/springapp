@@ -27,7 +27,6 @@ public class SimpleMessenger implements Messenger {
     }
 
     @Override
-    @PostProxy
     public void say() {
         System.out.println("Phase 3");
         for (int i = 0; i < repeat; i++) {
