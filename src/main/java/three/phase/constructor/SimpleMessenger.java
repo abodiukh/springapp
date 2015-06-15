@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
  * @author andrii
  */
 @Profiling
+@DeprecatedClass(newImpl = AnotherMessenger.class)
 public class SimpleMessenger implements Messenger {
 
     @IntRandomGenerator(min = 2, max = 9)

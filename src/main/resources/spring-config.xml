@@ -6,6 +6,7 @@
     <context:annotation-config />
     <context:component-scan base-package="three.phase.constructor"/>
 
+    <bean class="three.phase.constructor.DeprecationHandlerBeanFactoryPostProcessor"/>
     <bean class="three.phase.constructor.ProfilingHandlerPostBeanProcessor"/>
     <bean class="three.phase.constructor.PostProxyInvoker"/>
     <bean class="three.phase.constructor.IntRandomGeneratorPostBeanProcessor"/>
