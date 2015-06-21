@@ -2,6 +2,7 @@ package three.phase.constructor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.stereotype.Component;
 
 import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
@@ -16,6 +17,7 @@ import java.util.Map;
 /**
  * @author andrii
  */
+@Component
 public class ProfilingHandlerPostBeanProcessor implements BeanPostProcessor {
     private Map<String, Class> map = new HashMap<>();
     private ProfilingController controller = new ProfilingController();
